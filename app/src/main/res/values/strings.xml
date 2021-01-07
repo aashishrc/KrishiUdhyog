@@ -11,4 +11,9 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_customlogin">customlogin</string>
     <string name="title_activity_producelogin">producelogin</string>
+    <array name="Quality">
+        <item>Grade 1</item>
+        <item>Grade 2</item>
+        <item>Grade 3</item>
+    </array>
 </resources>

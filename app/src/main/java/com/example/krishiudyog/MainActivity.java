@@ -5,19 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView adminbut,custombut,producebut;
+    TextView tvtitle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView tv=findViewById(R.id.tvtitle);
 
+        tvtitle=findViewById(R.id.tvtitle);
         adminbut=findViewById(R.id.adminbut);
         custombut=findViewById(R.id.custombut);
         producebut=findViewById(R.id.producebut);
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         adminbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,com.example.krishiudyog.ui.login.adminlogin.class);
+                Intent intent=new Intent(MainActivity.this,com.example.krishiudyog.Adminlogin.class);
                 startActivity(intent);
             }
         });
@@ -33,21 +33,18 @@ public class MainActivity extends AppCompatActivity {
         custombut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,com.example.krishiudyog.ui.login.customlogin.class);
-                startActivity(intent);
+                startActivity(new Intent(MainActivity.this,com.example.krishiudyog.ConsumerLogin.class));
+
             }
         });
 
         producebut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,com.example.krishiudyog.ui.login.producelogin.class);
-                startActivity(intent);
+                startActivity(new Intent(MainActivity.this,com.example.krishiudyog.ProducerLogin.class));
+
             }
         });
-
-
-
     }
 
 }
