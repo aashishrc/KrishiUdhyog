@@ -28,7 +28,7 @@ public class Additem extends AppCompatActivity {
     Spinner qualityspinner;
     Button addbtn;
 
-    DatabaseReference databaseproducts,dbproducer;
+    DatabaseReference databaseproducts;
 
 
     @Override
@@ -41,7 +41,7 @@ public class Additem extends AppCompatActivity {
         etrate=findViewById(R.id.etrate);
         addbtn=findViewById(R.id.addbtn);
         qualityspinner=findViewById(R.id.qualityspinner);
-        databaseproducts= FirebaseDatabase.getInstance().getReference("Productsnews");
+        databaseproducts= FirebaseDatabase.getInstance().getReference("Products");
 
 
         addbtn.setOnClickListener(new View.OnClickListener() {
@@ -73,19 +73,19 @@ public class Additem extends AppCompatActivity {
                 }
 
                 String id=databaseproducts.push().getKey();
+                String pid=FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                String pid=getIntent().getStringExtra("producerid");
-                String extra=" ";
-
-                Productsnews product1=new Productsnews(rate,id,name,quality);
+                Products product=new Products(rate,id,name,quality,quantity);
 
 
-                databaseproducts.child(id).setValue(product1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                assert id != null;
+                databaseproducts.child(id).setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())
                         {
                             Toast.makeText(Additem.this, "Product added successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Additem.this,com.example.krishiudyog.ViewItems.class));
                         }
                         else
                         {

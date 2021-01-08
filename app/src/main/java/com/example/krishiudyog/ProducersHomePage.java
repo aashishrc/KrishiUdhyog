@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 public class ProducersHomePage extends AppCompatActivity {
 
-    TextView tvwelcome,tvadditem,tvorders,tvnotifications,tvcustomers;
-    ImageView notifications,additem,orders,customers;
+    TextView tvwelcome,tvadditem,tvorders,tvnotifications,tvcustomers,tvvitems;
+    ImageView notifications,additem,orders,customers,viewitems;
     Button btlogout;
 
     @Override
@@ -30,6 +30,8 @@ public class ProducersHomePage extends AppCompatActivity {
         orders=findViewById(R.id.orders);
         customers=findViewById(R.id.customers);
         btlogout=findViewById(R.id.btlogout);
+        viewitems=findViewById(R.id.viewitems);
+        tvvitems=findViewById(R.id.tvvitems);
 
 
         final String Producerid=getIntent().getStringExtra("producerid");
@@ -43,12 +45,21 @@ public class ProducersHomePage extends AppCompatActivity {
             }
         });
 
+        viewitems.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProducersHomePage.this,com.example.krishiudyog.ViewItems.class));
+            }
+        });
+
         btlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),com.example.krishiudyog.ProducerLogin.class));
             }
         });
+
+
 
     }
 }
