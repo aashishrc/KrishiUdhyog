@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,19 +17,28 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Vector;
 
+
 public class Additem extends AppCompatActivity {
     EditText etname,etqty,etrate;
     Spinner qualityspinner;
     Button addbtn;
+    static int cncnt=0;
 
-    DatabaseReference databaseproducts;
+
+    String ProducerLocation,ProducerName,ProducerContact;
+    String quality,quantity,rate,name;
+    String Productid;
+
+    DatabaseReference databaseproducts,dbitems,dbproducer;
 
 
     @Override
@@ -42,16 +52,17 @@ public class Additem extends AppCompatActivity {
         addbtn=findViewById(R.id.addbtn);
         qualityspinner=findViewById(R.id.qualityspinner);
         databaseproducts= FirebaseDatabase.getInstance().getReference("Products");
-
+        dbitems=FirebaseDatabase.getInstance().getReference("Itemslist");
+        dbproducer=FirebaseDatabase.getInstance().getReference("Producers");
 
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String name=etname.getText().toString().trim();
-                String quality=qualityspinner.getSelectedItem().toString();
-                String rate=etrate.getText().toString().trim();
-                String quantity=etqty.getText().toString().trim();
+                name=etname.getText().toString().trim();
+                quality=qualityspinner.getSelectedItem().toString();
+                rate=etrate.getText().toString().trim();
+                quantity=etqty.getText().toString().trim();
 
                 if(name.isEmpty())
                 {
@@ -72,14 +83,42 @@ public class Additem extends AppCompatActivity {
                     return;
                 }
 
-                String id=databaseproducts.push().getKey();
-                String pid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                final String ProducerId=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                dbproducer.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            ProducerName = dataSnapshot.child(ProducerId).child("fullname").getValue(String.class);
+                            ProducerContact = dataSnapshot.child(ProducerId).child("phone").getValue(String.class);
+                            if(ProducerContact.equals(null)){ProducerContact="8861662368";}
+                            ProducerLocation = dataSnapshot.child(ProducerId).child("place").getValue(String.class);
 
-                Products product=new Products(rate,id,name,quality,quantity);
+                            Itemslist i=new Itemslist();
+                            i.setLocation(ProducerLocation);
+                            i.setPname(ProducerName);
+                            i.setContact(ProducerContact);
+                            i.setQuality(quality);
+                            i.setQuantity(quantity);
+                            i.setRate(rate);
+                            dbitems.child(Productid).setValue(i);
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
 
 
-                assert id != null;
-                databaseproducts.child(id).setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {
+                Productid=databaseproducts.push().getKey();
+
+                Products product=new Products(rate,Productid,name,quality,quantity);
+
+                assert Productid != null;
+                databaseproducts.child(Productid).setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())
@@ -94,8 +133,11 @@ public class Additem extends AppCompatActivity {
                     }
                 });
 
+
             }
         });
 
     }
+
+
 }

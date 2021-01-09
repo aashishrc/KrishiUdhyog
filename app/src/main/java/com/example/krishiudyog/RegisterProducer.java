@@ -22,10 +22,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterProducer extends AppCompatActivity {
 
     TextView tvregisterproducer,tvcreate,tvproducerloginlink;
-    EditText etproducername,etproduceremail,etproducerpassword,etproducerphone;
+    EditText etproducername,etproduceremail,etproducerpassword,etproducerphone,etplace;
     Button btregister;
     FirebaseAuth fAuth;
     ProgressBar pbproducer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class RegisterProducer extends AppCompatActivity {
         etproduceremail=findViewById(R.id.etproduceremail);
         etproducerpassword=findViewById(R.id.etproducerpassword);
         etproducerphone=findViewById(R.id.etproducerphone);
+        etplace=findViewById(R.id.etplace);
         btregister=findViewById(R.id.btregister);
         fAuth=FirebaseAuth.getInstance();
         pbproducer=findViewById(R.id.pbproducer);
@@ -55,6 +57,12 @@ public class RegisterProducer extends AppCompatActivity {
                 final String email1=etproduceremail.getText().toString().trim();
                 final String password1=etproducerpassword.getText().toString().trim();
                 final String phone=etproducerphone.getText().toString().trim();
+                final String place=etplace.getText().toString().trim();
+
+                Itemslist i=new Itemslist();
+                i.setContact(phone);
+                i.setPname(name);
+                i.setLocation(place);
 
                 if(name.isEmpty())
                 {
@@ -96,6 +104,12 @@ public class RegisterProducer extends AppCompatActivity {
                     etproducerpassword.requestFocus();
                     return;
                 }
+                if(place.isEmpty())
+                {
+                    etplace.setError("Please enter Place");
+                    etplace.requestFocus();
+                    return;
+                }
 
                 pbproducer.setVisibility(View.VISIBLE);
 
@@ -105,7 +119,7 @@ public class RegisterProducer extends AppCompatActivity {
 
                         if(task.isSuccessful())
                         {
-                            Producers producer= new Producers(name,email1,phone,password1);
+                            Producers producer= new Producers(name,email1,phone,password1,place);
                             producer.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
                             FirebaseDatabase.getInstance().getReference("Producers")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
