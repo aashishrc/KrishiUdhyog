@@ -11,12 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".ShowCart"></activity>
-        <activity android:name=".ProducerViewItem" />
-        <activity android:name=".ProducerSearchItem" />
+        <activity android:name=".ConsumerViewItem" />
+        <activity android:name=".ConsumerSearchItem" />
         <activity android:name=".ConsumersHomePage" />
-        <activity android:name=".ViewItems" />
-        <activity android:name=".trial" />
+
+
+        <activity android:name=".ViewItems"></activity>
+
+
         <activity android:name=".Additem" />
         <activity android:name=".ProducersHomePage" />
         <activity android:name=".ProducerLogin" />

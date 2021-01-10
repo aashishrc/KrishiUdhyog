@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ProducerViewItem">
+    tools:context=".ConsumerViewItem">
     <Button
         android:id="@+id/btn_plce_order"
         android:text="PLACE ORDER"

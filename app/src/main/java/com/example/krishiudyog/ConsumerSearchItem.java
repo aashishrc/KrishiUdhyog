@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ProducerSearchItem extends AppCompatActivity {
+public class ConsumerSearchItem extends AppCompatActivity {
 
     SearchView searchView;
     ListView listView;
@@ -21,7 +21,7 @@ public class ProducerSearchItem extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_consumer_search_item);
         listView = (ListView) findViewById(R.id.listView);
 
         list = new ArrayList<>();
@@ -47,12 +47,12 @@ public class ProducerSearchItem extends AppCompatActivity {
                 if(list.contains(query)){
 
                     adapter.getFilter().filter(query);
-                    Intent intent = new Intent(ProducerSearchItem.this,ProducerViewItem.class);
+                    Intent intent = new Intent(ConsumerSearchItem.this,ConsumerViewItem.class);
                     startActivity(intent);
 
 
                 }else{
-                    Toast.makeText(ProducerSearchItem.this, "No Match found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ConsumerSearchItem.this, "No Match found",Toast.LENGTH_LONG).show();
                 }
                 return false;
 

@@ -17,7 +17,7 @@ public class ConsumersHomePage extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ConsumersHomePage.this,ProducerSearchItem.class);
+                Intent intent = new Intent(ConsumersHomePage.this,ConsumerSearchItem.class);
                 startActivity(intent);
             }
         });

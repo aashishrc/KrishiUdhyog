@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 
-public class ProducerViewItem extends AppCompatActivity {
+public class ConsumerViewItem extends AppCompatActivity {
 
     int[] images={R.drawable.add,R.drawable.remove};
     String[] names={"Wheat","Rice"};
@@ -26,7 +26,7 @@ public class ProducerViewItem extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_producer_view_item);
+        setContentView(R.layout.activity_consumer_view_item);
         ListView listview = (ListView)findViewById(R.id.list_view);
         CustomAdapter customAdapter=new CustomAdapter();
         listview.setAdapter(customAdapter);
@@ -34,7 +34,7 @@ public class ProducerViewItem extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProducerViewItem.this,ShowCart.class);
+                Intent intent = new Intent(ConsumerViewItem.this,ShowCart.class);
                 startActivity(intent);
             }
         });
