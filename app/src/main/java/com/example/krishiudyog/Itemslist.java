@@ -2,17 +2,26 @@ package com.example.krishiudyog;
 
 public class Itemslist {
 
-    String quality,quantity,rate,pname,location,contact;
+    String quality,quantity,rate,pname,location,contact,productname;
+    private int image;
 
     public Itemslist(){}
 
-    public Itemslist(String quality, String quantity, String rate, String pname, String location,String contact) {
+    public Itemslist(String quality, String quantity, String rate, String pname, String location,String contact,String Productname) {
         this.pname = pname;
         this.location = location;
         this.contact=contact;
         this.quality = quality;
         this.quantity = quantity;
         this.rate = rate;
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname;
     }
 
     public void setQuantity(String quantity) {

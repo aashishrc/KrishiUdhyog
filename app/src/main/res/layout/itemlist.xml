@@ -72,6 +72,7 @@
                 android:id="@+id/tvpname"
                 android:layout_width="91dp"
                 android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/imageView"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="128dp"

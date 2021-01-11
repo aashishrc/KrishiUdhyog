@@ -4,105 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
     <ImageView
-            android:id="@+id/adminbut"
-            android:layout_width="69dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="20dp"
-            android:clickable="true"
-            android:foregroundGravity="center_horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.259"
-            app:srcCompat="@drawable/admin" />
+        android:id="@+id/adminbut"
+        android:layout_width="69dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:foregroundGravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259"
+        app:srcCompat="@drawable/admin" />
 
-        <ImageView
-            android:id="@+id/producebut"
-            android:layout_width="69dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="20dp"
-            android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvcustom"
-            app:layout_constraintVertical_bias="0.106"
-            app:srcCompat="@drawable/producer" />
+    <ImageView
+        android:id="@+id/producebut"
+        android:layout_width="69dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvcustom"
+        app:layout_constraintVertical_bias="0.106"
+        app:srcCompat="@drawable/producer" />
 
-        <ImageView
-            android:id="@+id/custombut"
-            android:layout_width="69dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="20dp"
-            android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvadmin"
-            app:layout_constraintVertical_bias="0.068"
-            app:srcCompat="@drawable/customer" />
+    <ImageView
+        android:id="@+id/custombut"
+        android:layout_width="69dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvadmin"
+        app:layout_constraintVertical_bias="0.068"
+        app:srcCompat="@drawable/customer" />
 
-        <TextView
-            android:id="@+id/tvadmin"
-            android:layout_width="69dp"
-            android:layout_height="29dp"
-            android:gravity="center_horizontal"
-            android:text="Admin"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adminbut"
-            app:layout_constraintVertical_bias="0.0" />
+    <TextView
+        android:id="@+id/tvadmin"
+        android:layout_width="69dp"
+        android:layout_height="29dp"
+        android:gravity="center_horizontal"
+        android:text="Admin"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adminbut"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/tvcustom"
-            android:layout_width="111dp"
-            android:layout_height="33dp"
-            android:gravity="center"
-            android:text="Customer"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/custombut"
-            app:layout_constraintVertical_bias="0.0" />
+    <TextView
+        android:id="@+id/tvcustom"
+        android:layout_width="111dp"
+        android:layout_height="33dp"
+        android:gravity="center"
+        android:text="Customer"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custombut"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/tvproduce"
-            android:layout_width="91dp"
-            android:layout_height="28dp"
-            android:gravity="center"
-            android:text="Producer"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/producebut"
-            app:layout_constraintVertical_bias="0.0" />
+    <TextView
+        android:id="@+id/tvproduce"
+        android:layout_width="91dp"
+        android:layout_height="28dp"
+        android:gravity="center"
+        android:text="Producer"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/producebut"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/tvtitle"
-            android:layout_width="365dp"
-            android:layout_height="47dp"
-            android:gravity="center"
-            android:text="Welcome to KrishiUdhyog"
-            android:textColor="@android:color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/adminbut"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvtitle"
+        android:layout_width="365dp"
+        android:layout_height="47dp"
+        android:gravity="center"
+        android:text="Welcome to KrishiUdhyog"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/adminbut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 

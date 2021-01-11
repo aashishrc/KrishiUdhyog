@@ -3,17 +3,22 @@ package com.example.krishiudyog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.net.URL;
 
 public class ProducersHomePage extends AppCompatActivity {
 
     TextView tvwelcome,tvadditem,tvorders,tvnotifications,tvcustomers,tvvitems;
     ImageView notifications,additem,orders,customers,viewitems;
     Button btlogout;
+    ImageButton schemes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +37,7 @@ public class ProducersHomePage extends AppCompatActivity {
         btlogout=findViewById(R.id.btlogout);
         viewitems=findViewById(R.id.viewitems);
         tvvitems=findViewById(R.id.tvvitems);
-
+        schemes=findViewById(R.id.schemes);
 
         final String Producerid=getIntent().getStringExtra("producerid");
 
@@ -56,6 +61,14 @@ public class ProducersHomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),com.example.krishiudyog.ProducerLogin.class));
+            }
+        });
+
+        schemes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("http://agricoop.gov.in/programmes-schemes-listing"));
+                startActivity(intent);
             }
         });
 

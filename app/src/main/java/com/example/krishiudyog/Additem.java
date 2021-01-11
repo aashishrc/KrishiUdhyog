@@ -29,7 +29,7 @@ import java.util.Vector;
 
 public class Additem extends AppCompatActivity {
     EditText etname,etqty,etrate;
-    Spinner qualityspinner;
+    Spinner qualityspinner,namespinner;
     Button addbtn;
     static int cncnt=0;
 
@@ -51,6 +51,7 @@ public class Additem extends AppCompatActivity {
         etrate=findViewById(R.id.etrate);
         addbtn=findViewById(R.id.addbtn);
         qualityspinner=findViewById(R.id.qualityspinner);
+        namespinner=findViewById(R.id.namespinner);
         databaseproducts= FirebaseDatabase.getInstance().getReference("Products");
         dbitems=FirebaseDatabase.getInstance().getReference("Itemslist");
         dbproducer=FirebaseDatabase.getInstance().getReference("Producers");
@@ -59,17 +60,17 @@ public class Additem extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                name=etname.getText().toString().trim();
+                name=namespinner.getSelectedItem().toString();
                 quality=qualityspinner.getSelectedItem().toString();
                 rate=etrate.getText().toString().trim();
                 quantity=etqty.getText().toString().trim();
 
-                if(name.isEmpty())
+                /*if(name.isEmpty())
                 {
                     etname.setError("Please Enter the item name");
                     etname.requestFocus();
                     return;
-                }
+                }*/
                 if(rate.isEmpty())
                 {
                     etrate.setError("Please Enter the cost of item");
@@ -100,6 +101,7 @@ public class Additem extends AppCompatActivity {
                             i.setQuality(quality);
                             i.setQuantity(quantity);
                             i.setRate(rate);
+                            i.setProductname(name);
                             dbitems.child(Productid).setValue(i);
 
                         }

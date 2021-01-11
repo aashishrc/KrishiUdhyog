@@ -16,4 +16,17 @@
         <item>Grade 2</item>
         <item>Grade 3</item>
     </array>
+    <array name="Items">
+        <item>ONION</item>
+        <item>POTATO</item>
+        <item>CABBAGE</item>
+        <item>RICE</item>
+        <item>WHEAT</item>
+        <item>CAULIFLOWER</item>
+        <item>BRINJAL</item>
+        <item>CARROT</item>
+        <item>RADDISH</item>
+        <item>GREEN BEANS</item>
+        <item>CAPSICUM</item>
+    </array>
 </resources>

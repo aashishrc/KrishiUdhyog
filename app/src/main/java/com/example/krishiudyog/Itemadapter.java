@@ -35,7 +35,7 @@ public class Itemadapter extends RecyclerView.Adapter<Itemadapter.Itemviewholder
 
         Itemslist item=itemslist.get(position);
         holder.Producername.setText(item.getPname());
-        holder.tvlocation.setText(item.getLocation());
+        holder.tvpname.setText(item.getProductname());
         holder.tvgrade.setText(item.getQuality());
         holder.tvquantity.setText(item.getQuantity());
         holder.Price.setText(item.getRate());
@@ -50,14 +50,14 @@ public class Itemadapter extends RecyclerView.Adapter<Itemadapter.Itemviewholder
     public class Itemviewholder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
-        TextView tvgrade,tvquantity,Producername,Price,tvlocation;
+        TextView tvgrade,tvquantity,Producername,Price,tvpname;
 
         public Itemviewholder(@NonNull View itemView) {
             super(itemView);
 
             imageView=itemView.findViewById(R.id.imageView);
             tvgrade=itemView.findViewById(R.id.tvgrade);
-            tvlocation=itemView.findViewById(R.id.tvpname);
+            tvpname=itemView.findViewById(R.id.tvpname);
             tvquantity=itemView.findViewById(R.id.tvquantity);
             Producername=itemView.findViewById(R.id.Producername);
             Price=itemView.findViewById(R.id.Price);
