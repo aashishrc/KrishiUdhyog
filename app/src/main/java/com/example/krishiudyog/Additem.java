@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,16 +14,13 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Vector;
+import java.util.HashMap;
 
 
 public class Additem extends AppCompatActivity {
@@ -32,6 +28,7 @@ public class Additem extends AppCompatActivity {
     Spinner qualityspinner,namespinner;
     Button addbtn;
     static int cncnt=0;
+    HashMap<String, Integer> hashMap=new HashMap<String, Integer>();
 
 
     String ProducerLocation,ProducerName,ProducerContact;
@@ -55,6 +52,8 @@ public class Additem extends AppCompatActivity {
         databaseproducts= FirebaseDatabase.getInstance().getReference("Products");
         dbitems=FirebaseDatabase.getInstance().getReference("Itemslist");
         dbproducer=FirebaseDatabase.getInstance().getReference("Producers");
+
+        addintohash();
 
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +101,9 @@ public class Additem extends AppCompatActivity {
                             i.setQuantity(quantity);
                             i.setRate(rate);
                             i.setProductname(name);
+                            Integer img=hashMap.get(name);
+                            i.setImage(img);
+
                             dbitems.child(Productid).setValue(i);
 
                         }
@@ -139,6 +141,23 @@ public class Additem extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void addintohash()
+    {
+        hashMap.put("ONION",R.mipmap.onion);
+        hashMap.put("POTATO",R.mipmap.potato);
+        hashMap.put("CABBAGE",R.mipmap.cabbage);
+        hashMap.put("RICE",R.mipmap.rice);
+        hashMap.put("WHEAT",R.mipmap.wheat);
+        hashMap.put("CAULIFLOWER",R.mipmap.cauliflower);
+        hashMap.put("BRINJAL",R.mipmap.brinjal);
+        hashMap.put("CARROT",R.mipmap.carrot);
+        hashMap.put("RADISH",R.mipmap.radish);
+        hashMap.put("GREEN BEANS",R.mipmap.greenbeans);
+        hashMap.put("CAPSICUM",R.mipmap.capsicum);
+        Itemslist i=new Itemslist();
+        i.setimagehash(hashMap);
     }
 
 

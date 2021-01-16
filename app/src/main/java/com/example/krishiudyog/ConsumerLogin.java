@@ -87,7 +87,7 @@ public class ConsumerLogin extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            startActivity(new Intent(ConsumerLogin.this,com.example.krishiudyog.successfulpage.class));
+                            startActivity(new Intent(ConsumerLogin.this,com.example.krishiudyog.ConsumersHomePage.class));
                         }
                         else{
                             Toast.makeText(getApplicationContext(),"Error logging in!",Toast.LENGTH_SHORT).show();

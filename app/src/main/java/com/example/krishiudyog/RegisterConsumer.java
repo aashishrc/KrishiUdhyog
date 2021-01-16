@@ -116,7 +116,8 @@ public class RegisterConsumer extends AppCompatActivity {
                                     {
                                         pbconsumer.setVisibility(View.GONE);
                                         Toast.makeText(RegisterConsumer.this, "User Created sucessfully", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(RegisterConsumer.this,com.example.krishiudyog.successfulpage.class));
+                                        startActivity(new Intent(RegisterConsumer.this,com.example.krishiudyog.ConsumerLogin.class));
+                                        Toast.makeText(RegisterConsumer.this, "Please Enter Login Credentials to login", Toast.LENGTH_SHORT).show();
                                     }
                                     else
                                     {

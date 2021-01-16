@@ -1,8 +1,13 @@
 package com.example.krishiudyog;
 
+import android.graphics.drawable.Drawable;
+
+import java.util.HashMap;
+
 public class Itemslist {
 
     String quality,quantity,rate,pname,location,contact,productname;
+    HashMap<String,Integer> imagehash;
     private int image;
 
     public Itemslist(){}
@@ -14,6 +19,16 @@ public class Itemslist {
         this.quality = quality;
         this.quantity = quantity;
         this.rate = rate;
+    }
+
+
+
+    public void setimagehash(HashMap<String,Integer> h){
+        this.imagehash=h;
+    }
+
+    public HashMap<String, Integer> getImagehash() {
+        return imagehash;
     }
 
     public String getProductname() {
@@ -46,6 +61,18 @@ public class Itemslist {
 
     public void setContact(String contact) {
         this.contact = contact;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
+    }
+
+    public int getImage() {
+        return image;
     }
 
     public String getQuality() {

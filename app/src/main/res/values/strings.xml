@@ -35,4 +35,18 @@
         <item>GREEN BEANS</item>
         <item>CAPSICUM</item>
     </array>
+    <array name="Itemsearch">
+        <item>Please Select an Item</item>
+        <item>ONION</item>
+        <item>POTATO</item>
+        <item>CABBAGE</item>
+        <item>RICE</item>
+        <item>WHEAT</item>
+        <item>CAULIFLOWER</item>
+        <item>BRINJAL</item>
+        <item>CARROT</item>
+        <item>RADDISH</item>
+        <item>GREEN BEANS</item>
+        <item>CAPSICUM</item>
+    </array>
 </resources>

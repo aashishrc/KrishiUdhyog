@@ -39,6 +39,9 @@ public class Itemadapter extends RecyclerView.Adapter<Itemadapter.Itemviewholder
         holder.tvgrade.setText(item.getQuality());
         holder.tvquantity.setText(item.getQuantity());
         holder.Price.setText(item.getRate());
+        Itemslist i=new Itemslist();
+
+        holder.imageView.setImageDrawable(cntxt.getResources().getDrawable(item.getImage()));
 
     }
 
@@ -61,6 +64,7 @@ public class Itemadapter extends RecyclerView.Adapter<Itemadapter.Itemviewholder
             tvquantity=itemView.findViewById(R.id.tvquantity);
             Producername=itemView.findViewById(R.id.Producername);
             Price=itemView.findViewById(R.id.Price);
+
 
         }
     }

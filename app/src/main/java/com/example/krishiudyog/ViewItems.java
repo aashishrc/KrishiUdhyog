@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ClipData;
 import android.os.Bundle;
 
 import com.google.firebase.database.DataSnapshot;
@@ -14,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ViewItems extends AppCompatActivity {
@@ -48,7 +50,10 @@ public class ViewItems extends AppCompatActivity {
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Itemslist item = snapshot.getValue(Itemslist.class);
+                    Itemslist i=new Itemslist();
+
                     itemslist.add(item);
+
                 }
                 itemadapter.notifyDataSetChanged();
             }
@@ -60,5 +65,7 @@ public class ViewItems extends AppCompatActivity {
 
         }
     };
+
+
 
 }

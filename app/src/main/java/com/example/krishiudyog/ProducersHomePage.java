@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.net.URL;
 
 public class ProducersHomePage extends AppCompatActivity {
@@ -60,6 +62,7 @@ public class ProducersHomePage extends AppCompatActivity {
         btlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getApplicationContext(),com.example.krishiudyog.ProducerLogin.class));
             }
         });
