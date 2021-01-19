@@ -46,7 +46,7 @@ public class RegisterProducer extends AppCompatActivity {
         pbproducer=findViewById(R.id.pbproducer);
 
         if(fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),successfulpage.class));
+            startActivity(new Intent(getApplicationContext(),ProducersHomePage.class));
             finish();
         }
 

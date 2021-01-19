@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,12 +39,14 @@ public class ConsumerSearchItem extends AppCompatActivity {
     List<Itemslist> conitemslist;
     DatabaseReference dbitems;
     TextView ProducerName;
+    Button logoutbt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumer_search_item);
 
+        logoutbt=findViewById(R.id.logoutbt);
         itemspinner = findViewById(R.id.itemspinner);
         btsearch = findViewById(R.id.btsearch);
         conitemslist = new ArrayList<>();
@@ -71,27 +74,6 @@ public class ConsumerSearchItem extends AppCompatActivity {
                             for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                                 Itemslist item = snapshot.getValue(Itemslist.class);
                                 conitemslist.add(item);
-                                /*Display_item di=new Display_item();
-                                di.getdata(item.getProductname(),item.getPname(),item.getQuantity(),item.getContact(),item.getRate(),item.getLocation(),item.getQuality());
-                                intent.putExtra("productname",item.getProductname());
-                                intent.putExtra("producername",item.getPname());
-                                intent.putExtra("availablequantity",item.getQuantity());
-                                intent.putExtra("price",item.getRate());
-                                intent.putExtra("contactno",item.getContact());
-                                intent.putExtra("location",item.getLocation());
-                                intent.putExtra("image",item.getImage());
-                                intent.putExtra("quality",item.getQuality());*/
-
-                                //Toast.makeText(ConsumerSearchItem.this,"searching "+item.getPname(),Toast.LENGTH_SHORT).show();
-
-                                /*conadapter.setOnClickListener(new Conitemadapter.OnItemClickListener() {
-                                    @Override
-                                    public void onItemClick(int position) {
-                                        Intent intent=new Intent(ConsumerSearchItem.this,com.example.krishiudyog.Display_item.class);
-                                        startActivity(intent);
-                                        //conitemslist.get(position);
-                                    }
-                                });*/
                             }
                             conadapter.notifyDataSetChanged();
                         }
@@ -112,33 +94,15 @@ public class ConsumerSearchItem extends AppCompatActivity {
             }
         });
 
+        logoutbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(ConsumerSearchItem.this,ConsumerLogin.class));
+            }
+        });
     }
 
 
 }
 
-/*searchView = (SearchView) findViewById(R.id.searchView);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                searchView.clearFocus();
-                if(list.contains(query)){
-
-                    adapter.getFilter().filter(query);
-                    Intent intent = new Intent(ConsumerSearchItem.this,ConsumerViewItem.class);
-                    startActivity(intent);
-
-
-                }else{
-                    Toast.makeText(ConsumerSearchItem.this, "No Match found",Toast.LENGTH_LONG).show();
-                }
-                return false;
-
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });*/

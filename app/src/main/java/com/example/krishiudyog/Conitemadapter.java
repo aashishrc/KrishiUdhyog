@@ -81,6 +81,7 @@ public class Conitemadapter extends RecyclerView.Adapter<Conitemadapter.Conitemv
                 intent.putExtra("contactno",temp.getContact());
                 intent.putExtra("location",temp.getLocation());
                 intent.putExtra("quality",temp.getQuality());
+                intent.putExtra("producerid",temp.getPid());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 cntxt.startActivity(intent);
             }

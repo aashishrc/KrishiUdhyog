@@ -93,6 +93,7 @@ public class ProducerLogin extends AppCompatActivity {
 
                         }
                         else{
+                            producerpb.setVisibility(View.GONE);
                             Toast.makeText(getApplicationContext(),"Error logging in!",Toast.LENGTH_SHORT).show();
                         }
                     }

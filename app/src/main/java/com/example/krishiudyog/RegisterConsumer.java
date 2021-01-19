@@ -44,7 +44,7 @@ public class RegisterConsumer extends AppCompatActivity {
         pbconsumer=findViewById(R.id.pbconsumer);
 
         if(fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),successfulpage.class));
+            startActivity(new Intent(getApplicationContext(),ConsumersHomePage.class));
             finish();
         }
 

@@ -17,6 +17,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ConsumerLogin extends AppCompatActivity {
 
@@ -25,6 +30,7 @@ public class ConsumerLogin extends AppCompatActivity {
     Button btconsumerlogin;
     ProgressBar consumerpb;
     FirebaseAuth fAuth;
+    DatabaseReference dbconsumer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,7 @@ public class ConsumerLogin extends AppCompatActivity {
         btconsumerlogin=findViewById(R.id.btconsumerlogin);
         consumerpb=findViewById(R.id.consumerpb);
         fAuth=FirebaseAuth.getInstance();
+        dbconsumer=FirebaseDatabase.getInstance().getReference("Consumers");
 
         tvregisterlink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,9 +94,26 @@ public class ConsumerLogin extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            startActivity(new Intent(ConsumerLogin.this,com.example.krishiudyog.ConsumersHomePage.class));
+                            dbconsumer= FirebaseDatabase.getInstance().getReference("Consumers");
+                            final String consumerid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                            dbconsumer.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    String Consumername=dataSnapshot.child(consumerid).child("fullname").getValue(String.class);
+                                    Toast.makeText(getApplicationContext(),"Welcome "+Consumername,Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+                            startActivity(new Intent(ConsumerLogin.this,com.example.krishiudyog.ConsumerSearchItem.class));
                         }
                         else{
+                            consumerpb.setVisibility(View.GONE);
                             Toast.makeText(getApplicationContext(),"Error logging in!",Toast.LENGTH_SHORT).show();
                         }
                     }

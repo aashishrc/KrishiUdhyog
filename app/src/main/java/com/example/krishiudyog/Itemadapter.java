@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Itemadapter extends RecyclerView.Adapter<Itemadapter.Itemviewholder> {
@@ -33,6 +34,19 @@ public class Itemadapter extends RecyclerView.Adapter<Itemadapter.Itemviewholder
     @Override
     public void onBindViewHolder(@NonNull Itemviewholder holder, int position) {
 
+        HashMap<String,Integer> hashMap=new HashMap<String, Integer>();
+        hashMap.put("ONION",R.mipmap.bigonion);
+        hashMap.put("POTATO",R.mipmap.bigpotato);
+        hashMap.put("CABBAGE",R.mipmap.bigcabbage);
+        hashMap.put("RICE",R.mipmap.bigrice);
+        hashMap.put("WHEAT",R.mipmap.bigwheat);
+        hashMap.put("CAULIFLOWER",R.mipmap.bigcauliflower);
+        hashMap.put("BRINJAL",R.mipmap.bigbrinjal);
+        hashMap.put("CARROT",R.mipmap.bigcarrot);
+        hashMap.put("RADISH",R.mipmap.bigradish);
+        hashMap.put("GREEN BEANS",R.mipmap.biggreenbeans);
+        hashMap.put("CAPSICUM",R.mipmap.bigcapsicum);
+
         Itemslist item=itemslist.get(position);
         holder.Producername.setText(item.getPname());
         holder.tvpname.setText(item.getProductname());
@@ -41,7 +55,7 @@ public class Itemadapter extends RecyclerView.Adapter<Itemadapter.Itemviewholder
         holder.Price.setText(item.getRate());
         Itemslist i=new Itemslist();
 
-        holder.imageView.setImageDrawable(cntxt.getResources().getDrawable(item.getImage()));
+        holder.imageView.setImageDrawable(cntxt.getResources().getDrawable(hashMap.get(item.getProductname())));
 
     }
 

@@ -101,6 +101,7 @@ public class Additem extends AppCompatActivity {
                             i.setQuantity(quantity);
                             i.setRate(rate);
                             i.setProductname(name);
+                            i.setPid(ProducerId);
                             Integer img=hashMap.get(name);
                             i.setImage(img);
 

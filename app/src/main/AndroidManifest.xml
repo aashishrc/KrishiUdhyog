@@ -8,10 +8,16 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Display_item"></activity>
+        <activity android:name=".Welscreen">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity android:name=".welcomescreen" />
+        <activity android:name=".Prod_Orders" />
+        <activity android:name=".Display_item" />
         <activity android:name=".ShowCart" />
         <activity android:name=".ConsumerViewItem" />
         <activity android:name=".ConsumerSearchItem" />
@@ -21,17 +27,10 @@
         <activity android:name=".ProducersHomePage" />
         <activity android:name=".ProducerLogin" />
         <activity android:name=".ConsumerLogin" />
-        <activity android:name=".successfulpage" />
-        <activity android:name=".Adminlogin" />
-        <activity android:name=".Registeradmin1" />
         <activity android:name=".RegisterConsumer" />
         <activity android:name=".RegisterProducer" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

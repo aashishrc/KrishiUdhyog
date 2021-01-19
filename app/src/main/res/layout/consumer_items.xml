@@ -73,23 +73,23 @@
 
             <ImageView
                 android:id="@+id/location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="33dp"
                 android:layout_below="@id/ProducerName"
-                android:layout_marginLeft="-12dp"
+                android:layout_marginLeft="1dp"
                 android:layout_marginTop="0dp"
                 android:layout_toRightOf="@id/itemimage"
                 app:srcCompat="@mipmap/location" />
 
             <TextView
                 android:id="@+id/Place"
-                android:hint="Place"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ProducerName"
-                android:layout_marginLeft="-10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="8dp"
                 android:layout_toRightOf="@id/location"
+                android:hint="Place"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />

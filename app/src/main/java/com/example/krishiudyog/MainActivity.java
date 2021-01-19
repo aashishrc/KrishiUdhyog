@@ -18,17 +18,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tvtitle=findViewById(R.id.tvtitle);
-        adminbut=findViewById(R.id.adminbut);
         custombut=findViewById(R.id.custombut);
         producebut=findViewById(R.id.producebut);
-
-        adminbut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,com.example.krishiudyog.Adminlogin.class);
-                startActivity(intent);
-            }
-        });
+        
 
         custombut.setOnClickListener(new View.OnClickListener() {
             @Override

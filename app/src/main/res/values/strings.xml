@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Krishiudyog</string>
+    <string name="app_name">KrishiUdyog</string>
     <string name="title_activity_adminlogin">adminlogin</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

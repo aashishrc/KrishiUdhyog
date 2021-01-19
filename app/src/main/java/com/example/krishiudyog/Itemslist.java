@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Itemslist {
 
-    String quality,quantity,rate,pname,location,contact,productname;
+    String quality,quantity,rate,pname,location,contact,productname,pid;
     HashMap<String,Integer> imagehash;
     private int image;
 
@@ -21,14 +21,17 @@ public class Itemslist {
         this.rate = rate;
     }
 
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
 
 
     public void setimagehash(HashMap<String,Integer> h){
         this.imagehash=h;
-    }
-
-    public HashMap<String, Integer> getImagehash() {
-        return imagehash;
     }
 
     public String getProductname() {
