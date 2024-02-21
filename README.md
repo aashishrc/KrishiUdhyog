@@ -1,0 +1,1 @@
+An application for the farmers which can help them to sell their produce at good price not allowing any middleman to interfere. It can also help the consumers to get the item at the best price available at the nearest market
